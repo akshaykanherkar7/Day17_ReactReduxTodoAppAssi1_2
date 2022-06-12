@@ -9,6 +9,7 @@ let token = localStorage.getItem("token");
 const initialState = {
   loading: false,
   error: false,
+  // isAuth: false,
   isAuth: !!token,
   token: token,
 };

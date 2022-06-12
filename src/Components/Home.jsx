@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
-import { AddTodo } from "../Store/Action";
+import { useDispatch, useSelector } from "react-redux";
+import { AddTodo, todoList } from "../Store/Todo/Action";
 import { v4 as uuid } from "uuid";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import TodoList from "./TodoList";
 
 const Home = () => {
   const ref = useRef();
   const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todo.todos);
 
   const hadleAddTodo = () => {
     let value = ref.current.value;
     console.log("in Function");
     dispatch(AddTodo({ id: uuid(), value: value, isCompleted: false }));
+    ref.current.value = null;
   };
 
-  // axios.post("http://localhost:8080/todos", {
-  //   id: uuid(),
-  //   value: value,
-  //   isCompleted: false,
-  // })
+  useEffect(() => {
+    dispatch(todoList());
+  }, [dispatch]);
+
   return (
     <>
       <div>
@@ -28,7 +29,17 @@ const Home = () => {
         <input type="text" placeholder="Enter Something..." ref={ref} />
         <button onClick={hadleAddTodo}>Add Todo</button>
       </div>
-      <Link to="/todo"> TodoList</Link>
+      <TodoList></TodoList>
+      {/* <div>
+        {todos.map((todo) => (
+          <div key={todo.id}>
+            <div>{todo.value}</div>
+            <button>Mark as Completed</button>
+            <button>Remove</button>
+            <button>Update</button>
+          </div>
+        ))}
+      </div> */}
     </>
   );
 };

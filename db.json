@@ -1,39 +1,24 @@
 {
   "todos": [
     {
-      "id": "38b71422-a042-4161-91f4-223e30004de4",
-      "value": "Manish",
+      "id": "1a9f2ce3-56e7-4fd7-9846-67e6ecf6b0fe",
+      "value": "AAA",
+      "isCompleted": true
+    },
+    {
+      "id": "43c0d5ab-aab0-49ea-b6b7-c5fdb6863649",
+      "value": "ganesh",
       "isCompleted": false
     },
     {
-      "id": "8dd320db-6b8b-49ae-ad0f-a888b83c046e",
-      "value": "Aksahy",
+      "id": "31795684-9b08-47fb-b763-80782b8a9057",
+      "value": "AKKKK",
       "isCompleted": false
     },
     {
-      "id": "f58d642f-aafd-4afd-84ab-1d1ffadd475e",
-      "value": "Gagan",
-      "isCompleted": false
-    },
-    {
-      "id": "9ab4e4bf-f09a-49f8-bdea-5fc4a53a9bff",
-      "value": "asdad",
-      "isCompleted": false
-    },
-    {
-      "id": "4293aab6-d1b1-4ac5-baf8-2c04ff9d08c6",
-      "value": "Prajwal",
-      "isCompleted": false
-    },
-    {
-      "id": "76d2de76-c2e3-46a4-a243-3de30bfd5cb0",
-      "value": "AAAAAAAA",
-      "isCompleted": false
-    },
-    {
-      "id": "da708710-e7c2-49ab-a4e0-0e59c027f4cc",
-      "value": "AAAA47",
-      "isCompleted": false
+      "id": "9c807c42-93b8-4c8a-a7b6-6c7e80b880b3",
+      "value": "LLLLLLL",
+      "isCompleted": true
     }
   ]
 }

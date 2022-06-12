@@ -30,7 +30,11 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuth) {
-      navigate(location.state.pathname || "/", { replace: true });
+      navigate("/");
+
+      // navigate(location.state.pathname || "/", { replace: true });
+    } else {
+      navigate("/login");
     }
   }, [isAuth]);
 

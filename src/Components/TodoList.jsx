@@ -1,38 +1,42 @@
-import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { todoList } from "../Store/Action";
+import { Outlet, useNavigate } from "react-router-dom";
+import { todoList } from "../Store/Todo/Action";
+import { Link } from "react-router-dom";
 
 const TodoList = () => {
-  //   const [todosss, setTodos] = useState([]);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const todos = useSelector((state) => state.todo.todos);
-  // console.log("todos12:", todos);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/todos").then((res) => {
-      const handleList = () => {
-        dispatch(todoList({ ...res.data }));
-      };
-      handleList();
-    });
+    dispatch(todoList());
   }, [dispatch]);
   return (
-    <div>
-      {/* {todos} */}
-      <h1>TodoList</h1>
+    <div style={{ display: "flex", border: "1px solid" , justifyContent: "space-around"}}>
       <div>
-        {todos.map(({ value, id, isCompleted }) => (
-          <>
-            <div key={id}> {value}</div>
-            <button>Mark as Completed</button>
-            <button>Remove</button>
-            <button>Update</button>
-          </>
+        {todos.map((todo) => (
+          <div key={todo.id}>
+            {/* <div>{todo.value}</div> */}
+            <div style={{ width: "100%", margin: "auto", marginTop: "15px" }}>
+              <Link
+                style={{
+                  border: "1px solid",
+                  textDecoration: "none",
+                  padding: "8px",
+                  display: "grid",
+                  marginBottom: "10px",
+                }}
+                to={`/todo/${todo.id}`}
+              >
+                {todo.value}
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
+      <Outlet></Outlet>
     </div>
   );
 };
